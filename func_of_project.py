@@ -10,6 +10,7 @@ def determine_zodiak(birthday):
     list_birthday = birthday.split()
     list_birthday[0] = int(list_birthday[0])
     #Здесь 100% возникнет исключение IndexError на стыке декабря и января. Проверить и исправить
+    # Проверяю изменение имени в гит
     if list_birthday[0] in range(1, ranges[months.index(list_birthday[1])][0] + 1):
         return zodiaks[months.index(list_birthday[1])]
     elif list_birthday[0] in range(ranges[months.index(list_birthday[1])][0] + 1, ranges[months.index(list_birthday[1])][1]):
