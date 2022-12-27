@@ -3,7 +3,7 @@ from func_of_project import *
 
 # description = '(описание)'
 prediction = '(предсказание)'
-element = '(стихия)'
+#element = '(стихия)'
 print(''' 
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀████████████████████████████████████████████████████
 ▌██▀▀▀▀█████████████▀▀▀▀██▐*   *   *   *   *   *   *   *   *   *   *   *   * ▐  
@@ -25,8 +25,7 @@ print('''
 ▌██▀▀░░░░▒▒▒▒▒▒▒▒▒░░░░▀▀██▐*   *   *   *   *   *   *   * ▄█▀████▀████▄█▄   * ▐       
 ▌██▄▄▄▄▄███████████▄▄▄▄▄██▐  *   *   *   *   *   *   *   *   * ███   *   *   ▐                
 ██████████████████████████████████████████████████████████████████████████████''')
-
-
-print(f'\n{(choice(defolt[:3])+questions_zodiak()):^78}\n{choice(defolt[3:6])} {description()}.\n'
-      f'{choice(defolt[6:9])} {choice(defolt[9:12])} {element()}. {choice(defolt[12:15])}\n'
+zodiac = asks_zodiac()
+print(f'\n{(choice(defolt[:3])+zodiac):^78}\n{choice(defolt[3:6])} {description()}.\n'
+      f'{choice(defolt[6:9])} {choice(defolt[9:12])} {element(zodiac)}. {choice(defolt[12:15])}\n'
       f'{choice(defolt[15:18])}\n{choice(defolt[18:])} {prediction}')
