@@ -6,10 +6,6 @@ def determines_zodiac(birthday):
     :param birthday: введенная дата рождения
     :return: соответствующий знак зодиака
     '''
-
-
-    #Здесь 100% возникнет исключение IndexError на стыке декабря и января. Проверить и исправить
-    # Проверяю изменение имени в гит. P.S.: Программа думает, что я другой пользователь
     try:
         while True:
             list_birthday = birthday.split()
@@ -29,14 +25,15 @@ def determines_zodiac(birthday):
 
 
 def questions_zodiak():
-    print('Приветствую! Хочешь общее предсказание на новый 2023 год? '
-          '\nА ты знаешь свой знак зодиака? (да/нет) ', end='')
+    print(' ' * 28 + 'Скажи, как тебя зовут? ', end='')
+    name = input('\n- Меня зовут: ')
+    print(' '*14 + 'Рад познакомиться! А ты знаешь свой знак зодиака? (да/нет) ', end='')
     while True:  # Убрать в отдельную функцию
-        yesno = input().lower()
+        yesno = input(f'\n{name}: ').lower()
         if yesno == 'да':
-            print('Отлично! Скажи свой знак и узнаешь своё будущее: ', end='')
+            print(' '*15 + 'Отлично! Скажи свой знак и узнаешь своё будущее: ', end='')
             while True:
-                zodiac = input().lower()
+                zodiac = input(f'\n{name}: ').lower()
                 if zodiac not in zodiacs:
                     print('Что? Не понял. Повтори, пожалуйста: ', end='')
                     continue
@@ -45,16 +42,17 @@ def questions_zodiak():
             break
 
         elif yesno == 'нет':
-            date_of_birthday = input('Ничего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
-                                     'Введи дату(например, 3 октября): ').lower()
+            print('\nНичего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
+                                     'Скажи дату(например, 3 октября)')
+            date_of_birthday = input(f'\n{name}: ').lower()
             # Ввести проверку на соответствие формату (можно прописать в отдельной функции)
             zodiac = determines_zodiac(date_of_birthday)
             break
         else:
-            print('Что? Не разобрал. Введи "да" или "нет": ')
+            print('Что? Не разобрал. Скажи "да" или "нет": ')
             continue
-
-    return zodiac.capitalize()
+    zodiac = zodiac.capitalize()
+    return zodiac
 
 
 def description():
@@ -62,7 +60,7 @@ def description():
     описание знака зодиака
     :return: строку с прилагательными
     """
-    pass
+    return 'описание описание описание описание описание описание описание'
 
 
 def prediction():
@@ -73,9 +71,17 @@ def prediction():
     pass
 
 
-def element():
+def element(zodiac):
     """
     стихия
     :return: одну из четырех стихий по ЗЗ
     """
-    pass
+    match zodiac.lower():
+        case 'овен' | 'стрелец' | 'лев':
+            return 'огонь'
+        case 'козерог' | 'дева' | 'телец':
+            return 'земля'
+        case 'близнецы' | 'весы' | 'водолей':
+            return 'воздух'
+        case 'рак' | 'скорпион' | 'рыбы':
+            return 'вода'
