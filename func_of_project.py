@@ -60,12 +60,12 @@ def asks_zodiac(): #Функция избыточна: она выполняет
     return zodiac
 
 
-def description():
+def description(zodiac):
     """
     описание знака зодиака
     :return: строку с прилагательными
     """
-    return 'описание описание описание описание описание описание описание'
+    return descriptions[zodiacs.index(zodiac.lower())]
 
 
 def prediction():

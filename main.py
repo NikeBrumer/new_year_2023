@@ -26,6 +26,6 @@ print('''
 ▌██▄▄▄▄▄███████████▄▄▄▄▄██▐  *   *   *   *   *   *   *   *   * ███   *   *   ▐                
 ██████████████████████████████████████████████████████████████████████████████''')
 zodiac = asks_zodiac()
-print(f'\n{(choice(defolt[:3])+zodiac):^78}\n{choice(defolt[3:6])} {description()}.\n'
-      f'{choice(defolt[6:9])} {choice(defolt[9:12])} {element(zodiac)}. {choice(defolt[12:15])}\n'
-      f'{choice(defolt[15:18])}\n{choice(defolt[18:])} {prediction}')
+print(f'\n{(choice(default[:3]) + zodiac):^78}\n{choice(default[3:6])} {description(zodiac)}.\n'
+      f'{choice(default[6:9])} {choice(default[9:12])} {element(zodiac)}. {choice(default[12:15])}\n'
+      f'{choice(default[15:18])}\n{choice(default[18:])} {prediction}')
