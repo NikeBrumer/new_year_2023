@@ -1,9 +1,6 @@
 from random import choice
 from func_of_project import *
 
-# description = '(описание)'
-prediction = '(предсказание)'
-#element = '(стихия)'
 print(''' 
 █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀████████████████████████████████████████████████████
 ▌██▀▀▀▀█████████████▀▀▀▀██▐*   *   *   *   *   *   *   *   *   *   *   *   * ▐  
@@ -25,7 +22,31 @@ print('''
 ▌██▀▀░░░░▒▒▒▒▒▒▒▒▒░░░░▀▀██▐*   *   *   *   *   *   *   * ▄█▀████▀████▄█▄   * ▐       
 ▌██▄▄▄▄▄███████████▄▄▄▄▄██▐  *   *   *   *   *   *   *   *   * ███   *   *   ▐                
 ██████████████████████████████████████████████████████████████████████████████''')
-zodiac = asks_zodiac()
+name = asks_name()
+zodiac = asks_zodiac(name)
+
 print(f'\n{(choice(default[:3]) + zodiac):^78}\n{choice(default[3:6])} {description(zodiac)}.\n'
       f'{choice(default[6:9])} {choice(default[9:12])} {element(zodiac)}. {choice(default[12:15])}\n'
-      f'{choice(default[15:18])}\n{choice(default[18:])} {prediction}')
+      f'{choice(default[15:18])}\n{choice(default[18:])} {prediction()}')
+
+print('\nТы уже знаешь, что символ 2023 года - Кролик.'
+      '\nХочешь узнать, кто является смиволом твоего года рождения? ')
+while True:
+    flag = yes_no(input(f'{name}: '))
+    if flag:
+        print('Вот это любознательность!\nСкажи мне год своего рождения и получишь ответ.')
+        symbol = animals(name)
+        print(f'Символ твоего года - {symbol}')
+        break
+    if not flag:
+        break
+while True: #Это костыль. Прототип программы. Здесь надо переделать - из функции asks_zodiac забрать тело и написать его в main,
+      print('Хочешь еще раз получить предсказание?')
+      flag = yes_no(input(f'{name}: '))
+      if flag:
+            #asks_zodiac(name)
+            print(' \n(Здесь программа должна вернуться к вопросу об имени')
+      if not flag:
+            print('\nЧто ж, пока! Если захочешь вспомнить предсказание или посмотреть предсказание друзьям - возвращайся!')
+            break
+

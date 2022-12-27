@@ -30,12 +30,25 @@ def asks_name():
     return name
 
 
-def asks_zodiac(): #Функция избыточна: она выполняет помимо основной работы (запись в переменную zodiac) другую - отвечает за вывод и запись имени
-    name = asks_name()
+def is_valid():
+    pass
+
+
+def yes_no(yesno):
+    if yesno == 'да':
+        return True
+    elif yesno == 'нет':
+        return False
+    else:
+        return None
+
+
+
+def asks_zodiac(name): # Избыточная функция. Валидность надо вынести отдельно, да/нет - отдельно
     print(' ' * 10 + f'Рад познакомиться, {name}! А ты знаешь свой знак зодиака? (да/нет) ', end='')
-    while True:  # Убрать в отдельную функцию
-        yesno = input(f'\n{name}: ').lower()
-        if yesno == 'да':
+    while True:
+        flag = yes_no(input(f'\n{name}: ').lower())
+        if flag:
             print(' ' * 15 + 'Отлично! Скажи свой знак и узнаешь своё будущее: ', end='')
             while True:
                 zodiac = input(f'\n{name}: ').lower()
@@ -46,7 +59,7 @@ def asks_zodiac(): #Функция избыточна: она выполняет
                     break
             break
 
-        elif yesno == 'нет':
+        elif not flag:
             print('\nНичего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
                   'Скажи дату(например, 3 октября)')
             date_of_birthday = input(f'\n{name}: ').lower()
@@ -90,3 +103,8 @@ def element(zodiac):
             return 'воздух'
         case 'рак' | 'скорпион' | 'рыбы':
             return 'вода'
+
+
+def animals(name):
+    year = int(input(f'{name}: '))
+    return zodiak[(year-2000)%12]
