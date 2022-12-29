@@ -70,8 +70,10 @@ while True:
     stars_line()
     print(' ' * 40 + 'Погадаем заново?')
     stars_line()
-    flag = is_flag_valid()
+    flag = is_flag_valid(name)
     if flag:
+        stars_line()
+        stars_line()
         continue
     if not flag:
         stars_line()
