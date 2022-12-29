@@ -2,14 +2,24 @@ from random import choice
 from func_of_project import *
 
 greeting_art()
-name = asks_name()
-stars_line()
-egg = False
-print(' ' * 10 + f'Рад познакомиться, {name}! А ты знаешь свой знак зодиака? (да/нет) ', end='')
-print()
+
 while True:
+    name = asks_name()
     stars_line()
-    flag = yes_no(input(f'\n{name}: ').lower())
+    egg = False
+    print(' ' * 10 + f'Рад познакомиться, {name}! А ты знаешь свой знак зодиака? (да/нет) ', end='')
+    print()
+    stars_line()
+    while True:
+        flag = yes_no(input(f'\n{name}: ').lower())
+        if flag == True or flag == False:
+            break
+        else:
+            stars_line()
+            print('Что? Не разобрал. Скажи "да" или "нет".')
+            stars_line()
+            continue
+
     if flag:
         stars_line()
         print(' ' * 23 + 'Отлично! Скажи свой знак и узнаешь своё будущее: ', end='')
@@ -26,18 +36,15 @@ while True:
                 continue
             else:
                 break
-    elif flag == False:
+    elif not flag:
         stars_line()
-        print('\nНичего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
+        print('Ничего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
               'Скажи дату(например, 3 октября)')
         stars_line()
         birthday = input(f'\n{name}: ').lower()
+        stars_line()
         # Ввести проверку на соответствие формату (можно прописать в отдельной функции)
         zodiac = determines_zodiac(birthday)
-    else:
-        stars_line()
-        print('Что? Не разобрал. Скажи "да" или "нет": ')
-        continue
     zodiac = zodiac.capitalize()
     if egg:
         print(f'Вау! Твоя фамилия, случайно, не Дарвин?\nВ любом случае у меня и для Змееносцев кое-что есть!'
