@@ -34,10 +34,8 @@ while True:
         print(' ' * 22 + 'Ничего страшного! Я тебе помогу. Когда у тебя день рождения?')
         print(' ' * 33 + 'Скажи дату(например, 3 октября)')
         stars_line()
-        birthday = input(f'\n{name}: ').lower()
-        stars_line()
-        # Ввести проверку на соответствие формату (можно прописать в отдельной функции)
-        zodiac = determines_zodiac(birthday)
+
+        zodiac = determines_zodiac(name)
     zodiac = zodiac.capitalize()
     if egg:
         print(f'Вау! Твоя фамилия, случайно, не Дарвин?\nВ любом случае у меня и для Змееносцев кое-что есть!'

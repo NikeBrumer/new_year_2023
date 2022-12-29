@@ -42,27 +42,37 @@ def is_flag_valid(name):
     return flag
 
 
-def determines_zodiac(birthday):
+def determines_zodiac(name):
     '''
     :param birthday: введенная дата рождения
     :return: соответствующий знак зодиака
     '''
-    try:
-        while True:
-            list_birthday = birthday.split()
-            list_birthday[0] = int(list_birthday[0])
+    while True:
+        try:
 
-            if list_birthday[0] in range(1, ranges[months.index(list_birthday[1])][0] + 1):
-                return zodiacs[months.index(list_birthday[1])]
-            elif list_birthday[0] in range(ranges[months.index(list_birthday[1])][0] + 1,
-                                           ranges[months.index(list_birthday[1])][1]):
-                return zodiacs[months.index(list_birthday[1]) + 1]
+            birthday = input(f'\n{name}: ').lower()
+
+            stars_line()
+            birthday = birthday.split()
+            if len(birthday) != 2:
+                raise ValueError('Некорректная дата')
+            birthday[0] = int(birthday[0])
+
+            if birthday[0] in range(1, ranges[months.index(birthday[1])][0] + 1):
+                return zodiacs[months.index(birthday[1])]
+            elif birthday[0] in range(ranges[months.index(birthday[1])][0] + 1,
+                                           ranges[months.index(birthday[1])][1]):
+                return zodiacs[months.index(birthday[1]) + 1]
             else:
-                print('Не уверен, что такая дата существует.')
-                birthday = input('Введи корректную дату: ')
+                print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату')
+                stars_line()
+                continue
+        except (AttributeError, IndexError, ):
+            return zodiacs[0]
+        except ValueError:
+            print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату')
+            stars_line()
 
-    except (AttributeError, IndexError):
-        return zodiacs[0]
 
 
 def asks_name():
@@ -124,12 +134,12 @@ def animals(name):
             stars_line()
             year = int(input(f'\n{name}: '))
             if 1924 < year < 2024:
-                return zodiak[(year-2000) % 12]
+                return zodiak[(year - 2000) % 12]
             else:
                 stars_line()
-                print(' '*25 + 'Не думаю, что ты родился именно в этот год. Введи корректный')
+                print(' ' * 25 + 'Не думаю, что ты родился именно в этот год. Введи корректный')
                 continue
         except ValueError:
             stars_line()
-            print(' '*25 + 'Это не похоже на год рождения. Введи корректный.')
+            print(' ' * 25 + 'Это не похоже на год рождения. Введи корректный.')
             continue
