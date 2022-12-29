@@ -59,7 +59,6 @@ while True:
         stars_line()
         print(' ' * 35 + 'Вот это любознательность!')
         print(' ' * 25 + 'Скажи мне год своего рождения и получишь ответ.')
-        stars_line()
         symbol = animals(name)
         stars_line()
         print(' ' * 35 + f'Символ твоего года - {symbol}')

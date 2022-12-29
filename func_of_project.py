@@ -42,7 +42,6 @@ def is_flag_valid(name):
     return flag
 
 
-
 def determines_zodiac(birthday):
     '''
     :param birthday: введенная дата рождения
@@ -120,5 +119,17 @@ def element(zodiac):
 
 
 def animals(name):
-    year = int(input(f'\n{name}: '))
-    return zodiak[(year-2000)%12]
+    while True:
+        try:
+            stars_line()
+            year = int(input(f'\n{name}: '))
+            if 1924 < year < 2024:
+                return zodiak[(year-2000) % 12]
+            else:
+                stars_line()
+                print(' '*25 + 'Не думаю, что ты родился именно в этот год. Введи корректный')
+                continue
+        except ValueError:
+            stars_line()
+            print(' '*25 + 'Это не похоже на год рождения. Введи корректный.')
+            continue
