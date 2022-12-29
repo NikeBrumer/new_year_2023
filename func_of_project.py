@@ -29,6 +29,20 @@ def stars_line():
     print('*' * 110)
 
 
+def is_flag_valid(name):
+    while True:
+        flag = yes_no(input(f'\n{name}: ').lower())
+        if flag == True or flag == False:
+            break
+        else:
+            stars_line()
+            print(' ' * 33 + 'Что? Не разобрал. Скажи "да" или "нет".')
+            stars_line()
+            continue
+    return flag
+
+
+
 def determines_zodiac(birthday):
     '''
     :param birthday: введенная дата рождения
@@ -54,15 +68,11 @@ def determines_zodiac(birthday):
 
 def asks_name():
     stars_line()
-    print(' ' * 35 + 'Скажи, как тебя зовут? ', end='')
+    print(' ' * 40 + 'Скажи, как тебя зовут? ', end='')
     print()
     stars_line()
     name = input('\nТы: ')
     return name.capitalize()
-
-
-def is_valid():
-    pass
 
 
 def yes_no(yesno):

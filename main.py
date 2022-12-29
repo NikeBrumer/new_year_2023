@@ -7,23 +7,15 @@ while True:
     name = asks_name()
     stars_line()
     egg = False
-    print(' ' * 10 + f'Рад познакомиться, {name}! А ты знаешь свой знак зодиака? (да/нет) ', end='')
+    print(' ' * 20 + f'Рад познакомиться, {name}! А ты знаешь свой знак зодиака? (да/нет) ', end='')
     print()
     stars_line()
-    while True:
-        flag = yes_no(input(f'\n{name}: ').lower())
-        if flag == True or flag == False:
-            break
-        else:
-            stars_line()
-            print('Что? Не разобрал. Скажи "да" или "нет".')
-            stars_line()
-            continue
+
+    flag = is_flag_valid(name)
 
     if flag:
         stars_line()
-        print(' ' * 23 + 'Отлично! Скажи свой знак и узнаешь своё будущее: ', end='')
-        print()
+        print(' ' * 30 + 'Отлично! Скажи свой знак и узнаешь своё будущее.')
         stars_line()
         while True:
             zodiac = input(f'\n{name}: ').lower()
@@ -32,14 +24,15 @@ while True:
                 egg = True
                 break
             elif zodiac not in zodiacs:
-                print('Что? Не понял. Повтори, пожалуйста: ', end='')
+                print(' ' * 33 + 'Что? Не понял. Повтори, пожалуйста.')
+                stars_line()
                 continue
             else:
                 break
     elif not flag:
         stars_line()
-        print('Ничего страшного! Я тебе помогу. Когда у тебя день рождения? \n'
-              'Скажи дату(например, 3 октября)')
+        print(' ' * 22 + 'Ничего страшного! Я тебе помогу. Когда у тебя день рождения?')
+        print(' ' * 33 + 'Скажи дату(например, 3 октября)')
         stars_line()
         birthday = input(f'\n{name}: ').lower()
         stars_line()
@@ -52,38 +45,36 @@ while True:
               '\nСходится? Твоя стихия - огонь. Круто!'
               f'\nЧто же ждёт тебя в 2023 году? А вот что: {prediction(zodiac.lower())}')
     else:
-        print(f'\n{(choice(default[:3]) + zodiac):^78}\n{choice(default[3:6])} {description(zodiac)}.\n'
+        print(f'\n{(choice(default[:3]) + zodiac):^110}\n{choice(default[3:6])} {description(zodiac)}.\n'
               f'{choice(default[6:9])} {choice(default[9:12])} {element(zodiac)}. {choice(default[12:15])}\n'
               f'{choice(default[15:18])}\n{choice(default[18:])} {prediction(zodiac.lower())}')
 
     print()
     stars_line()
-    print('Ты уже знаешь, что символ 2023 года - Кролик.'
-          '\nХочешь узнать, кто является символом твоего года рождения? ')
+    print(' ' * 31 + 'Ты уже знаешь, что символ 2023 года - Кролик.'
+                     '\n' + ' ' * 24 + 'Хочешь узнать, кто является символом твоего года рождения? ')
     stars_line()
-    while True:
-        flag = yes_no(input(f'\n{name}: '))
-        if flag:
-            stars_line()
-            print('Вот это любознательность!\nСкажи мне год своего рождения и получишь ответ.')
-            stars_line()
-            symbol = animals(name)
-            stars_line()
-            print(f'Символ твоего года - {symbol}')
-            break
-        if not flag:
-            stars_line()
-            print('Что ж, наверное, ты уже его знаешь.')
-            break
+    flag = is_flag_valid(name)
+    if flag:
+        stars_line()
+        print(' ' * 35 + 'Вот это любознательность!')
+        print(' ' * 25 + 'Скажи мне год своего рождения и получишь ответ.')
+        stars_line()
+        symbol = animals(name)
+        stars_line()
+        print(' ' * 35 + f'Символ твоего года - {symbol}')
+    if not flag:
+        stars_line()
+        print(' ' * 33 + 'Что ж, наверное, ты уже его знаешь.')
+
     stars_line()
-    print('Погадаем заново?')
+    print(' ' * 40 + 'Погадаем заново?')
     stars_line()
-    flag = yes_no(input(f'\n{name}: '))
+    flag = is_flag_valid()
     if flag:
         continue
     if not flag:
         stars_line()
-        print(f'Пока, {name}! Захочешь вспомнить предсказание или посмотреть предсказание друзьям - возвращайся!')
+        print(' ' * 15 + f'Пока, {name}! Захочешь вспомнить предсказание или посмотреть предсказание друзьям - возвращайся!')
         stars_line()
         break
-
