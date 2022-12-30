@@ -26,7 +26,7 @@ def greeting_art():
 
 
 def stars_line():
-    print('*' * 110)
+    print('*' * 112)
 
 
 def is_flag_valid(name):
@@ -44,6 +44,7 @@ def is_flag_valid(name):
 
 def determines_zodiac(name):
     '''
+    :param name:
     :param birthday: введенная дата рождения
     :return: соответствующий знак зодиака
     '''
@@ -64,15 +65,14 @@ def determines_zodiac(name):
                                            ranges[months.index(birthday[1])][1]):
                 return zodiacs[months.index(birthday[1]) + 1]
             else:
-                print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату')
+                print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату.')
                 stars_line()
                 continue
         except (AttributeError, IndexError, ):
             return zodiacs[0]
         except ValueError:
-            print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату')
+            print(' ' * 25 + 'Не уверен, что такая дата существует. Введи корректную дату.')
             stars_line()
-
 
 
 def asks_name():
@@ -137,9 +137,9 @@ def animals(name):
                 return zodiak[(year - 2000) % 12]
             else:
                 stars_line()
-                print(' ' * 25 + 'Не думаю, что ты родился именно в этот год. Введи корректный')
+                print(' ' * 25 + 'Не думаю, что год рождения может быть таким. Скажи корректный.')
                 continue
         except ValueError:
             stars_line()
-            print(' ' * 25 + 'Это не похоже на год рождения. Введи корректный.')
+            print(' ' * 25 + 'Это не похоже на год рождения. Скажи корректный.')
             continue

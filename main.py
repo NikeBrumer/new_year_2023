@@ -38,28 +38,28 @@ while True:
         zodiac = determines_zodiac(name)
     zodiac = zodiac.capitalize()
     if egg:
-        print(f'Вау! Твоя фамилия, случайно, не Дарвин?\nВ любом случае у меня и для Змееносцев кое-что есть!'
-              '\nЗмееносцы сильные духом, независимые, нарциссичные, верные и честные.'
-              '\nСходится? Твоя стихия - огонь. Круто!'
-              f'\nЧто же ждёт тебя в 2023 году? А вот что: {prediction(zodiac.lower())}')
+        print(f' Вау! Твоя фамилия, случайно, не Дарвин?\n В любом случае у меня и для Змееносцев кое-что есть!'
+              '\n Змееносцы сильные духом, независимые, нарциссичные, верные и честные.'
+              '\n Сходится? Твоя стихия - огонь. Круто!'
+              f'\n Что же ждёт тебя в 2023 году? А вот что: {prediction(zodiac.lower())}')
     else:
-        print(f'\n{(choice(default[:3]) + zodiac):^110}\n{choice(default[3:6])} {description(zodiac)}.\n'
-              f'{choice(default[6:9])} {choice(default[9:12])} {element(zodiac)}. {choice(default[12:15])}\n'
-              f'{choice(default[15:18])}\n{choice(default[18:])} {prediction(zodiac.lower())}')
+        print(f'\n {(choice(default[:3]) + zodiac):^100}\n {choice(default[3:6])} {description(zodiac)}.\n'
+              f' {choice(default[6:9])} {choice(default[9:12])} {element(zodiac)}. {choice(default[12:15])}\n'
+              f' {choice(default[15:18])}\n {choice(default[18:])} {prediction(zodiac.lower())}')
 
     print()
     stars_line()
-    print(' ' * 31 + 'Ты уже знаешь, что символ 2023 года - Кролик.'
-                     '\n' + ' ' * 24 + 'Хочешь узнать, кто является символом твоего года рождения? ')
+    print(' ' * 33 + 'Ты уже знаешь, что символ 2023 года - Кролик.'
+                     '\n' + ' ' * 27 + 'Хочешь узнать, кто является символом твоего года рождения? ')
     stars_line()
     flag = is_flag_valid(name)
     if flag:
         stars_line()
-        print(' ' * 35 + 'Вот это любознательность!')
-        print(' ' * 25 + 'Скажи мне год своего рождения и получишь ответ.')
+        print(' ' * 39 + 'Вот это любознательность!')
+        print(' ' * 29 + 'Скажи мне год своего рождения и получишь ответ.')
         symbol = animals(name)
         stars_line()
-        print(' ' * 35 + f'Символ твоего года - {symbol}')
+        print(' ' * 35 + f'Символ твоего года - {symbol}.')
     if not flag:
         stars_line()
         print(' ' * 33 + 'Что ж, наверное, ты уже его знаешь.')
@@ -74,6 +74,6 @@ while True:
         continue
     if not flag:
         stars_line()
-        print(' ' * 15 + f'Пока, {name}! Захочешь вспомнить предсказание или посмотреть предсказание друзьям - возвращайся!')
+        print(' ' * 10 + f'Пока, {name}! Захочешь вспомнить предсказание или посмотреть предсказание друзьям - возвращайся!')
         stars_line()
         break
